@@ -13,3 +13,4 @@ nimcache
 profile_results.txt
 t.*.bed.gz
 t.*.bed.gz.csi
+docker/somalier
