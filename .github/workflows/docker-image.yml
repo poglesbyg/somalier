@@ -16,3 +16,13 @@ jobs:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file docker/Dockerfile --tag my-image-name:$(date +%s)
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v4.6.2
+      with:
+        # Artifact name
+        name: my-image-name:$(date +%s) # optional, default is artifact
+        # A file, directory or wildcard pattern that describes what to upload
+        path: .
+        # The desired behavior if no files are found using the provided path.
+              
