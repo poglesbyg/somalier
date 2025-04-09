@@ -9,6 +9,15 @@ jobs:
     runs-on: ubuntu-latest
  
     steps:
-    - uses: actions/checkout@v1
-    - name: docker-build
-      run: docker build docker/  --tag brentp/somalier:$(date +%s)
+    - name: Set up Docker Buildx
+    - uses: docker/setup-buildx-action@v3
+
+    - name: Build Docker image and extract binary
+      run: |
+        DOCKER_BUILDKIT=1 docker build --target docker/  --tag brentp/somalier:$(date +%s) --output ./output .
+
+    - name: Upload binary as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: binary-artifact
+        path: ./output/<binary_path_inside_container>
