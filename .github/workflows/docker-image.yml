@@ -24,7 +24,7 @@ jobs:
         docker rm temp_container
 
     - name: Upload binary as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: somalier-blob
         path: somalier-blob
