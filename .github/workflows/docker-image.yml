@@ -3,6 +3,8 @@ name: Docker Image CI
 on:
   push:
     branches: [ "master" ]
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ "master" ]
 
@@ -33,4 +35,3 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: somalier-blob
-        tag: alpha
